@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.travello.ui.main.fragment.DetailsFragment">
+
+    <data>
+
+        <variable
+            name="poi"
+            type="com.example.travello.ui.main.model.PointOfInterest" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/poi_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/poi_photo"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_photo" />
+
+        <ImageView
+            android:id="@+id/poi_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/poi_name_tv"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/poi_name_tv"
+            style="@style/AppTheme.OutlinedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/poi_city_tv"
+            android:layout_marginStart="8dp"
+            android:text="@{poi.name}"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/poi_city_tv"
+            style="@style/AppTheme.OutlinedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/poi_name_tv"
+            android:layout_alignBottom="@+id/poi_img"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{poi.city}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/poi_city_divider"
+            style="@style/AppTheme.OutlinedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/poi_city_tv"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_toEndOf="@+id/poi_city_tv"
+            android:text="@string/divider_bullet"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/poi_country_tv"
+            style="@style/AppTheme.OutlinedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poi_city_tv"
+            android:layout_alignTop="@+id/poi_city_tv"
+            android:layout_toEndOf="@+id/poi_city_divider"
+            android:text="@{poi.country}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/poi_description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poi_img"
+            android:padding="8dp"
+            android:text="@{poi.description}"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</layout>

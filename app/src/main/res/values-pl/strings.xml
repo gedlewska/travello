@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Travello</string>
+    <string name="city">Miasto</string>
+    <string name="tap_to_speak">Naciśnij, by mówić</string>
+    <string name="search">Szukaj</string>
+    <string name="listening">Słuchanie…</string>
+    <string name="no_results">Brak rezultatów</string>
+</resources>
