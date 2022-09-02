@@ -20,8 +20,6 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ListFragment : Fragment(), OnPoiSelectedListener {
 
-    //private val mFilterDialog: FilterDialogFragment? = null
-
     private val viewModel: PoiViewModel by sharedViewModel()
 
     private lateinit var adapter: PoiAdapter

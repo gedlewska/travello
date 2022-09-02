@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.example.travello.R
 import com.example.travello.databinding.FragmentDetailsBinding
 import com.example.travello.ui.main.model.PointOfInterest
 import com.example.travello.ui.main.viewmodel.PoiViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+
 
 class DetailsFragment : Fragment() {
 
@@ -58,12 +62,16 @@ class DetailsFragment : Fragment() {
 
     private fun setPoiImage() {
         if (activity != null && binding != null) {
-            Glide.with(requireActivity())
+            Glide.with(binding!!.poiImg)
                 .load(poi?.photo)
                 .placeholder(R.drawable.ic_photo)
                 .error(R.drawable.ic_photo)
-                .override(200, 100)
-                .centerCrop()
+                .apply(
+                    RequestOptions()
+                        .fitCenter()
+                        .format(DecodeFormat.PREFER_ARGB_8888)
+                        .override(Target.SIZE_ORIGINAL)
+                )
                 .into(binding!!.poiImg)
         }
     }
