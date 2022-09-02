@@ -5,4 +5,5 @@
     <string name="search">Szukaj</string>
     <string name="listening">Słuchanie…</string>
     <string name="no_results">Brak rezultatów</string>
+    <string name="address">Adres: </string>
 </resources>

@@ -4,8 +4,9 @@
     <string name="tap_to_speak">Tap to Speak</string>
     <string name="search">Search</string>
     <string name="listening">Listening…</string>
-    <string name="divider_bullet" translatable="false">•</string>
+    <string name="address">Address: </string>
     <string name="no_results">No results</string>
+    <string name="divider_bullet" translatable="false">•</string>
     <string name="poi_photo" translatable="false">Poi photo</string>
     <string name="back_button" translatable="false">Back button</string>
     <string name="mic_icon" translatable="false">Mic icon</string>

@@ -81,13 +81,39 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/poi_description_tv"
-            android:layout_width="match_parent"
+            android:id="@+id/poi_address_label_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/poi_img"
             android:padding="8dp"
-            android:text="@{poi.description}"
+            android:text="@string/address"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/poi_address_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/poi_img"
+            android:layout_toEndOf="@+id/poi_address_label_tv"
+            android:padding="8dp"
+            android:text="@{poi.address}"
             android:textSize="16sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/poi_address_tv">
+
+            <TextView
+                android:id="@+id/poi_description_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@{poi.description}"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </ScrollView>
 
     </RelativeLayout>
 

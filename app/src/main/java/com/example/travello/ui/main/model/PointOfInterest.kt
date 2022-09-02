@@ -9,8 +9,8 @@ public class PointOfInterest {
         const val FIELD_CITY = "city"
         const val FIELD_COUNTRY = "country"
         const val FIELD_DESCRIPTION = "description"
-        const val FIELD_FUN_FACT = "fun_fact"
         const val FIELD_NAME = "name"
+        const val FIELD_ADDRESS = "address"
         const val FIELD_PHOTO = "photo"
     }
 
@@ -18,7 +18,7 @@ public class PointOfInterest {
     val city: String? = null
     val country: String? = null
     val description: String? = null
-    val funFact: String? = null
+    val address: String? = null
     val photo: String? = null
 
 }

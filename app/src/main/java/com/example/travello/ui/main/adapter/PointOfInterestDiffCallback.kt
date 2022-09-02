@@ -13,7 +13,7 @@ object PointOfInterestDiffCallback : DiffUtil.ItemCallback<PointOfInterest>() {
                 && oldItem.description == newItem.description
                 && oldItem.city == newItem.city
                 && oldItem.country == newItem.country
-                && oldItem.funFact == newItem.funFact
+                && oldItem.address == newItem.address
                 && oldItem.photo == newItem.photo
     }
 }
