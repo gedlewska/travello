@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.travello.R
 import com.example.travello.ui.main.model.PointOfInterest
 import com.example.travello.ui.main.util.OnPoiSelectedListener
+import com.example.travello.ui.main.util.PointOfInterestDiffCallback
 
 class PoiAdapter(private val context: Context, private val listener: OnPoiSelectedListener?) :
     ListAdapter<PointOfInterest, PoiAdapter.ViewHolder>(PointOfInterestDiffCallback) {

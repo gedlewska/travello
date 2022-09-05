@@ -4,7 +4,6 @@
     tools:context="com.example.travello.ui.main.fragment.DetailsFragment">
 
     <data>
-
         <variable
             name="poi"
             type="com.example.travello.ui.main.model.PointOfInterest" />

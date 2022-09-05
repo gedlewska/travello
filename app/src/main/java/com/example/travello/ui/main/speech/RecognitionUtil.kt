@@ -80,11 +80,9 @@ class RecognitionUtil(
     }
 
     private fun createSpeechRecognizer() {
-
         if (!SpeechRecognizer.isRecognitionAvailable(activity)) {
             return
         }
-
         speechRecognizer.setRecognitionListener(recognitionListener);
         putExtras()
     }
@@ -95,7 +93,7 @@ class RecognitionUtil(
             putExtra(
                 RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-            );
+            )
             putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
             putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, activity.packageName)
         }

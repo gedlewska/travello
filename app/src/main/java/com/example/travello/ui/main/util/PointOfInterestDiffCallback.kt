@@ -1,4 +1,4 @@
-package com.example.travello.ui.main.adapter
+package com.example.travello.ui.main.util
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.travello.ui.main.model.PointOfInterest
