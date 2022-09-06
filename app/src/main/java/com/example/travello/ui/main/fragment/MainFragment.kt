@@ -37,13 +37,8 @@ class MainFragment : Fragment(), RecognitionListener {
     private lateinit var progressBar: ProgressBar
     private lateinit var stateTv: TextView
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        setRecognition()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         setRecognition()
     }
 
