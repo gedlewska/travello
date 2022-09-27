@@ -12,17 +12,17 @@ class Repository(private val firestorePoiDataSource: FirestorePoiDataSource) {
         private const val TAG = "Repository"
     }
 
-    fun pois(): Flow<List<PointOfInterest>> =
-        firestorePoiDataSource.getPois().catch { exception -> notifyError(exception) }
-
     fun pois(city: String?): Flow<List<PointOfInterest>> {
-        if (city == null || city.isEmpty())
-            return firestorePoiDataSource.getPois().catch { exception -> notifyError(exception) }
+        if (city.isNullOrEmpty())
+            return pois()
         return firestorePoiDataSource.getPois(city).catch { exception -> notifyError(exception) }
     }
 
+    fun pois(): Flow<List<PointOfInterest>> =
+        firestorePoiDataSource.getPois().catch { exception -> notifyError(exception) }
+
     private fun notifyError(exception: Throwable) {
-        Log.e(TAG, "Couldn't get points of interest")
+        Log.e(TAG, "Couldn't get points of interest: ${exception.message}")
     }
 
 }

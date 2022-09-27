@@ -26,6 +26,7 @@ class FirestorePoiDataSource {
                 if (exception != null || snapshot == null) {
                     return@addSnapshotListener
                 }
+
                 try {
                     trySend(snapshot.toObjects(PointOfInterest::class.java)).isSuccess
                 } catch (e: Throwable) {
@@ -45,25 +46,28 @@ class FirestorePoiDataSource {
     fun getPois(): Flow<List<PointOfInterest>> = callbackFlow {
 
         var poisCollection: CollectionReference? = null
+
         try {
             poisCollection = FirebaseFirestore.getInstance().collection("points_of_interest")
+
+            val subscription = poisCollection?.addSnapshotListener { snapshot, exception ->
+                if (exception != null || snapshot == null) {
+                    return@addSnapshotListener
+                }
+
+                try {
+                    trySend(snapshot.toObjects(PointOfInterest::class.java)).isSuccess
+                } catch (e: Throwable) {
+                    Log.e(TAG, "Points of interest couldn't be sent to the flow")
+                }
+            }
+
+            awaitClose { subscription?.remove() }
+
         } catch (e: Throwable) {
             Log.e(TAG, "Firebase cannot be initialized. The stream of data flow will be stoped")
             close(e)
         }
-
-        val subscription = poisCollection?.addSnapshotListener { snapshot, exception ->
-            if (exception != null || snapshot == null) {
-                return@addSnapshotListener
-            }
-            try {
-                trySend(snapshot.toObjects(PointOfInterest::class.java)).isSuccess
-            } catch (e: Throwable) {
-                Log.e(TAG, "Points of interest couldn't be sent to the flow")
-            }
-        }
-
-        awaitClose { subscription?.remove() }
     }
 
 }
